@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
 from django.http import HttpResponse
 
 # 欢迎信息
@@ -28,4 +28,5 @@ urlpatterns = [
     # path 函数用于定义路由，第一个参数是路径，第二个参数是处理请求的视图函数。name参数是给路由起一个名字，方便在模板中使用。
     path('admin/', admin.site.urls),
     path('', welcome, name='welcome'),
+    path('demo/', include('demo.urls')), # 加载demo应用的路由
 ]
